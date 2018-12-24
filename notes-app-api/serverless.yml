@@ -46,7 +46,7 @@ functions:
   #     domain api call
   # - authorizer: authenticate using the AWS IAM role
   create:
-    handler: create.main
+    handler: requests/create.main
     events:
       - http:
           path: notes
@@ -54,7 +54,7 @@ functions:
           cors: true
           authorizer: aws_iam
   get:
-    handler: get.main
+    handler: requests/get.main
     events:
       - http:
           path: notes/{id}
