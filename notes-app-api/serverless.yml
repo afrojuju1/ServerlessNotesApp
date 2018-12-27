@@ -53,11 +53,35 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
+  update:
+    handler: requests/update.main
+    events:
+      - http:
+          path: notes/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
   get:
     handler: requests/get.main
     events:
       - http:
           path: notes/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+  delete:
+    handler: requests/delete.main
+    events:
+      - http:
+          path: notes/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+  list:
+    handler: requests/list.main
+    events:
+      - http:
+          path: notes
           method: get
           cors: true
           authorizer: aws_iam
